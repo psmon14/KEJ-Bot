@@ -49,13 +49,17 @@ class PlaybackCommands(commands.Cog):
         
         for i, entry in enumerate(entries, 1):
             duration = entry.get('duration', 0)
-            minutes, seconds = divmod(int(duration), 60) 
+            hours, remainder = divmod(int(duration), 3600)
+            minutes, seconds = divmod(remainder, 60)
+            if hours > 0:
+                duration_str = f"{hours}:{minutes:02}:{seconds:02}"
+            else:
+                duration_str = f"{minutes}:{seconds:02}"
             embed.add_field(
                 name=f"{i}. {entry.get('title', 'Unknown Title')}",
-                value=SONG_DURATION.format(minutes=minutes, seconds=seconds),
+                value=SONG_DURATION.format(duration=duration_str),
                 inline=False
             )
-        
         view = SearchSelectView(entries, interaction.user, self.player)
         await interaction.followup.send(embed=embed, view=view)
 
