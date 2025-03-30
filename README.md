@@ -20,7 +20,7 @@ Bot is created primarly for private use, so don't bother reporting bugs.
 
 4.Install requirements from requirements.txt by using pip (pip install -r requirements.txt)
 
-5.Add your discord bot token to the .env file (DISCORD_TOKEN=[YOUR_TOKEN])
+5.Add your discord bot token to the .env file (DISCORD_TOKEN=YOUR_TOKEN)
 
 6.Export a youtube cookie into cookie.txt file in the same directory as the bot (always use a throwaway account because cookies will expire if you often use the account from which you took cookies)
 
