@@ -72,7 +72,7 @@ class PlaybackControls(discord.ui.View):
 
     @discord.ui.button(
         emoji="▶️", 
-        style=discord.ButtonStyle.primary,
+        style=discord.ButtonStyle.secondary,
         custom_id="persistent:resume"
     )
     async def resume_button(self, interaction: discord.Interaction, button: discord.ui.Button):
