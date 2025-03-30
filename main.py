@@ -2,13 +2,20 @@ import discord
 from discord.ext import commands
 import sys
 from pathlib import Path
-from bot_token import DISCORD_TOKEN
+import os
+
+from dotenv import load_dotenv
+load_dotenv() 
 
 sys.path.append(str(Path(__file__).parent))
 
 from commands import PlaybackCommands, QueueCommands, VoiceCommands
 from messages import AUTO_DISCONNECT
 from views import PlaybackControls
+
+DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
+if not DISCORD_TOKEN:
+    raise ValueError("Please set the DISCORD_TOKEN environment variable.")
 
 intents = discord.Intents.default()
 intents.message_content = True

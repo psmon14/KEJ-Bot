@@ -49,10 +49,10 @@ class PlaybackCommands(commands.Cog):
         
         for i, entry in enumerate(entries, 1):
             duration = entry.get('duration', 0)
-            minutes, seconds = divmod(duration, 60)
+            minutes, seconds = divmod(int(duration), 60) 
             embed.add_field(
                 name=f"{i}. {entry.get('title', 'Unknown Title')}",
-                value=SONG_DURATION,
+                value=SONG_DURATION.format(minutes=minutes, seconds=seconds),
                 inline=False
             )
         

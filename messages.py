@@ -34,7 +34,7 @@ QUEUE_CLEARED = "Queue cleared"
 QUEUE_NEXT_SONG = "Now Playing"
 
 SONG_REQUESTED_BY = "Requested by {user}"
-SONG_DURATION = "Duration: {minutes}:{seconds:02}"
+SONG_DURATION = "Duration: {minutes:02}:{seconds:02}"
 PLAY_FAILED = "Couldn't play after {attempts} tries"
 
 SEARCH_SELECTION_NOT_AVAILABLE = "This selection is not available"
