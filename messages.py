@@ -1,0 +1,51 @@
+CMD_PLAY = "Play a song (URL or search)"
+CMD_SKIP = "Skip current song"
+CMD_STOP = "Stop playback and clear queue"
+CMD_PAUSE = "Pause playback"
+CMD_RESUME = "Resume playback"
+CMD_QUEUE = "Show song queue"
+CMD_CLEAR = "Clear queue"
+CMD_NOWPLAYING = "Show current song"
+CMD_JOIN = "Join voice channel"
+CMD_LEAVE = "Leave voice channel"
+CMD_LOOPSONG = "Loop current song"
+CMD_LOOPQUEUE = "Loop the entire queue"
+CMD_PLAY_QUERY = "URL or search query"
+
+
+VOICE_NOT_CONNECTED = "You need to be in a voice channel!"
+VOICE_JOIN_SUCCESS = "Joined {channel}"
+VOICE_JOIN_FAILED = "Failed to join: {error}"
+VOICE_LEAVE_SUCCESS = "Left voice channel"
+BOT_NOT_CONNECTED = "I'm not in a voice channel"
+
+PLAYBACK_SKIPPED = "Song skipped"
+PLAYBACK_LOOP_SKIPPED = "Looping song skipped"
+PLAYBACK_STOPPED = "Playback stopped"
+PLAYBACK_PAUSED = "Paused"
+PLAYBACK_RESUMED = "Resumed"
+NOTHING_PLAYING = "No music playing"
+NOT_PAUSED = "Not paused"
+
+QUEUE_ADDED_SONG = "Added: {title}"
+QUEUE_ADDED_PLAYLIST = "Added {count} songs"
+QUEUE_EMPTY = "Queue is empty"
+QUEUE_CLEARED = "Queue cleared"
+QUEUE_NEXT_SONG = "Now Playing"
+
+SONG_REQUESTED_BY = "Requested by {user}"
+SONG_DURATION = "Duration: {minutes}:{seconds:02}"
+PLAY_FAILED = "Couldn't play after {attempts} tries"
+
+SEARCH_SELECTION_NOT_AVAILABLE = "This selection is not available"
+SEARCH_TITLE = "Results for: {query}"
+NO_RESULTS = "No results found"
+
+AUTO_DISCONNECT = "Left due to inactivity"
+REQUEST_FAILED = "Failed: {error}"
+
+LOOP_SONG_ENABLED = "Looping current song"
+LOOP_SONG_DISABLED = "Stopped looping current song"
+LOOP_QUEUE_ENABLED = "Looping entire queue"
+LOOP_QUEUE_DISABLED = "Stopped looping entire queue"
+
