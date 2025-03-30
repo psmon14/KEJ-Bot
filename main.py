@@ -54,9 +54,18 @@ async def on_voice_state_update(member, before, after):
     if voice_client and len(voice_client.channel.members) == 1:
         channel = voice_client.channel
         await voice_client.disconnect()
-        bot.get_cog('PlaybackCommands').player.clear_queue(member.guild.id)
+        
+        playback_commands = bot.get_cog('PlaybackCommands')
+        playback_commands.player.clear_queue(member.guild.id)
+        
+        summon_context = playback_commands.player.get_summon_context(member.guild.id)
+        playback_commands.player.clear_summon_context(member.guild.id)
+        
         try:
-            await channel.send(AUTO_DISCONNECT)
+            if summon_context:
+                await summon_context.followup.send(AUTO_DISCONNECT)
+            else:
+                await channel.send(AUTO_DISCONNECT)
         except Exception as e:
             print(f"Couldn't send disconnect message: {e}")
 

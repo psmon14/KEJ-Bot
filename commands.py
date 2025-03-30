@@ -22,6 +22,7 @@ class PlaybackCommands(commands.Cog):
         if not voice_client:
             try:
                 voice_client = await interaction.user.voice.channel.connect()
+                self.player.set_summon_context(interaction.guild.id, interaction)
             except Exception as e:
                 await interaction.response.send_message(VOICE_JOIN_FAILED.format(error=e), ephemeral=True)
                 return
@@ -184,6 +185,7 @@ class VoiceCommands(commands.Cog):
         channel = interaction.user.voice.channel
         try:
             await channel.connect()
+            self.bot.get_cog('PlaybackCommands').player.set_summon_context(interaction.guild.id, interaction)
             await interaction.response.send_message(VOICE_JOIN_SUCCESS.format(channel=channel.name))
         except Exception as e:
             await interaction.response.send_message(VOICE_JOIN_FAILED.format(error=e), ephemeral=True)

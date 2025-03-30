@@ -11,6 +11,17 @@ class MusicPlayer:
         self.current = {}
         self.loop_song = {}
         self.loop_queue = {}
+        self.summon_context = {}
+
+    def set_summon_context(self, guild_id, interaction):
+        self.summon_context[guild_id] = interaction
+
+    def get_summon_context(self, guild_id):
+        return self.summon_context.get(guild_id)
+
+    def clear_summon_context(self, guild_id):
+        if guild_id in self.summon_context:
+            del self.summon_context[guild_id]
 
     def toggle_loop_song(self, guild_id):
         self.loop_song[guild_id] = not self.loop_song.get(guild_id, False)
