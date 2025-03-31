@@ -14,11 +14,12 @@ Bot is created primarly for private use, so don't bother reporting bugs.
 
 ## Docker
 
-Install Docker and simply run
+In the same directory as your cookie.txt run
 
 ```bash
 docker run --rm -it \
   -e DISCORD_TOKEN=your_discord_token \
+  -v "cookie.txt:/app/cookies.txt" \
   ghcr.io/psmon14/kej-bot:main
 ```
 
@@ -31,6 +32,8 @@ services:
     restart: always
     environment:
       - DISCORD_TOKEN=your_discord_token
+    volumes:
+      - ./cookie.txt:/app/cookies.txt
 ```
 
 ## Manual
