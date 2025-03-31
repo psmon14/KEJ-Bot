@@ -19,7 +19,7 @@ Install Docker and simply run
 ```bash
 docker run --rm -it \
   -e DISCORD_TOKEN=your_discord_token \
-  skarka47/kej-bot:latest
+  ghcr.io/psmon14/kej-bot:main
 ```
 
 Or use Docker-compose
@@ -27,7 +27,7 @@ Or use Docker-compose
 ```yaml
 services:
   kej-bot:
-    image: skarka47/kej-bot:latest
+    image: ghcr.io/psmon14/kej-bot:main
     restart: always
     environment:
       - DISCORD_TOKEN=your_discord_token
