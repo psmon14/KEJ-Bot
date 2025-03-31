@@ -49,3 +49,4 @@ LOOP_SONG_DISABLED = "Stopped looping current song"
 LOOP_QUEUE_ENABLED = "Looping entire queue"
 LOOP_QUEUE_DISABLED = "Stopped looping entire queue"
 
+MSG_SEARCHING = "Searching..."

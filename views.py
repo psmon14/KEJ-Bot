@@ -42,7 +42,6 @@ class SearchButton(discord.ui.Button):
         
         await interaction.response.send_message(
             QUEUE_ADDED_SONG.format(title=self.entry.get('title', 'Unknown Title')),
-            ephemeral=True
         )
         
         voice_client = interaction.guild.voice_client
@@ -96,7 +95,7 @@ class PlaybackControls(discord.ui.View):
             player.loop_song[guild_id] = False
             await interaction.response.send_message(PLAYBACK_LOOP_SKIPPED)
         else:
-            await interaction.response.send_message(PLAYBACK_SKIPPED, ephemeral=True)
+            await interaction.response.send_message(PLAYBACK_SKIPPED)
 
         voice_client = interaction.guild.voice_client
         if voice_client and voice_client.is_playing():

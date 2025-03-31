@@ -32,22 +32,20 @@ class PlaybackCommands(commands.Cog):
             await self.player.add_to_queue(interaction, query)
             return
 
-        await interaction.response.defer()
-        
+        await interaction.response.send_message(MSG_SEARCHING, ephemeral=True)
+
         search_query = f"ytsearch5:{query}"
         data = await YTDLSource.get_info(search_query)
-        
+
         if not data or not data.get('entries'):
-            await interaction.followup.send(NO_RESULTS)
+            await interaction.edit_original_response(content=NO_RESULTS)
             return
-            
+
         entries = data['entries'][:5]
-        
         embed = discord.Embed(
             title=SEARCH_TITLE.format(query=query),
             color=discord.Color.gold()
         )
-        
         for i, entry in enumerate(entries, 1):
             duration = entry.get('duration', 0)
             hours, remainder = divmod(int(duration), 3600)
@@ -62,7 +60,8 @@ class PlaybackCommands(commands.Cog):
                 inline=False
             )
         view = SearchSelectView(entries, interaction.user, self.player)
-        await interaction.followup.send(embed=embed, view=view)
+
+        await interaction.edit_original_response(content=None, embed=embed, view=view)
 
     @app_commands.command(name="skip", description=CMD_SKIP)
     async def skip(self, interaction: discord.Interaction):
