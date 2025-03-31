@@ -12,6 +12,29 @@ Bot is created primarly for private use, so don't bother reporting bugs.
 
 # Installation
 
+## Docker
+
+Install Docker and simply run
+
+```bash
+docker run --rm -it \
+  -e DISCORD_TOKEN=your_discord_token \
+  skarka47/kej-bot:latest
+```
+
+Or use Docker-compose
+
+```yaml
+services:
+  kej-bot:
+    image: skarka47/kej-bot:latest
+    restart: always
+    environment:
+      - DISCORD_TOKEN=your_discord_token
+```
+
+## Manual
+
 1.Install Python 3.11 or newer
 
 2.Create a virtual environment
